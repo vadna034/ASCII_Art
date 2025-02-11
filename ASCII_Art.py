@@ -52,11 +52,11 @@ def outputToFile(brightnessArray, gScale, outputFile):
 
 def main(inputURl, rows, outputFile, gScale):
     if gScale == 1:
-        gScale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. " #70 level greyscale
+        gScale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. " #70 level greyscale
     elif gScale == 2:
         gScale = "@%#*+=-:, "  # 10 level greyscale inverted
     elif gScale == 3:
-        gScale = " .'`^\",:;Il!i><~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"  # 70 level greyscale inverted
+        gScale = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"  # 70 level greyscale inverted
     else:
         gScale = " .:-=+*#%@"  # 10 level greyscale
     greyImage = getGreyscaleImage(inputURl)
@@ -65,7 +65,9 @@ def main(inputURl, rows, outputFile, gScale):
     greyImage.close()
 
 
-if len(sys.argv) == 2:
+if len(sys.argv) == 1:
+    print("Error: Path to file needed for generating output")
+elif len(sys.argv) == 2:
     main(sys.argv[1], 50, "Output.txt", 1)
 elif len(sys.argv) == 3:
     main(sys.argv[1], int(sys.argv[2]), "Output.txt", 1)
